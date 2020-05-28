@@ -1,8 +1,5 @@
 # URI Asset Loader App
 
-Description: Vins Basics with ARCore
-Screenshots and Shareables: https://cdn.discordapp.com/attachments/692419245811957822/715381673671524382/Screenshot_20200527-214848.jpg, https://cdn.discordapp.com/attachments/692419245811957822/715381674958913566/Screenshot_20200527-214858.jpg, https://cdn.discordapp.com/attachments/692419245811957822/715381675487657984/Screenshot_20200527-215058.jpg
-
 ![https://cdn.discordapp.com/attachments/692419245811957822/715381675487657984/Screenshot_20200527-215058.jpg](https://cdn.discordapp.com/attachments/692419245811957822/715381675487657984/Screenshot_20200527-215058.jpg)
 
 All assets used were created by **[Poly by Google](https://poly.google.com/user/4aEd8rQgKu2)**. These were published under a Public/Remixable (CC-BY) license.
@@ -31,12 +28,12 @@ The final application utilizes ARCore version 1.12.0. This is not the latest ver
 
 ### Guides/References
 
-- [Kotlin-based ARCore Sceneform App](https://heartbeat.fritz.ai/build-you-first-android-ar-app-with-arcore-and-sceneform-in-5-minutes-af02dc56efd6)
-- [Kotlin-based Continuation (Fetching Models at Runtime)](https://proandroiddev.com/fetching-models-at-runtime-with-sceneform-and-arcore-fde1a3bad060)
-- [Google's Java-based Introduction to Sceneform](https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..%2Fio2018#0)
-- [GitHub response to runtime loading of assets](https://github.com/google-ar/sceneform-android-sdk/issues/8#issuecomment-388074179)
-- [Google's Java URI-based RenderableSource class](https://developers.google.com/sceneform/develop/create-renderables#load_3d_models_at_runtime)
-- [Poorly Written Guide To ARCore Implementations (with good scalable UI design)](https://medium.com/@jose01.arteaga/kotlin-arcore-49b7a234f7cf)
+-   [Kotlin-based ARCore Sceneform App](https://heartbeat.fritz.ai/build-you-first-android-ar-app-with-arcore-and-sceneform-in-5-minutes-af02dc56efd6)
+-   [Kotlin-based Continuation (Fetching Models at Runtime)](https://proandroiddev.com/fetching-models-at-runtime-with-sceneform-and-arcore-fde1a3bad060)
+-   [Google's Java-based Introduction to Sceneform](https://codelabs.developers.google.com/codelabs/sceneform-intro/index.html?index=..%2F..%2Fio2018#0)
+-   [GitHub response to runtime loading of assets](https://github.com/google-ar/sceneform-android-sdk/issues/8#issuecomment-388074179)
+-   [Google's Java URI-based RenderableSource class](https://developers.google.com/sceneform/develop/create-renderables#load_3d_models_at_runtime)
+-   [Poorly Written Guide To ARCore Implementations (with good scalable UI design)](https://medium.com/@jose01.arteaga/kotlin-arcore-49b7a234f7cf)
 
 ---
 
@@ -50,7 +47,7 @@ Android Studio 3.6 does not properly support Sceneform's asset simplification, a
 
 In the app `build.gradle` file, saved asset files were put into the `\src\main\assets` folder instead.
 
-**This is when I learned that the *app's* `build.gradle` and the *project's* `build.gradle` are two separate things.** Their only distinguishing trait (excluding the code inside) is which directory they are in.
+**This is when I learned that the _app's_ `build.gradle` and the _project's_ `build.gradle` are two separate things.** Their only distinguishing trait (excluding the code inside) is which directory they are in.
 
 ```groovy
 // Notes:
@@ -76,7 +73,7 @@ This issue is a [well documented](https://github.com/Esri/arcgis-runtime-toolkit
 
 In this project in specific, ARCore's version was handled by Sceneform. Thus, to upgrade ARCore's version, you need to upgrade Sceneform's defined version in the app `build.gradle`.
 
-### [Sceneform] Binary XML File Line #23: Error inflating class com.google.ar.sceneform.*
+### [Sceneform] Binary XML File Line #23: Error inflating class com.google.ar.sceneform.\*
 
 This problem arises from a mismatch of ARCore (or Sceneform) versioning. If it continues, you can downgrade to an earlier version as well.
 
