@@ -1,0 +1,2 @@
+rootProject.name='File Test AR Legacy'
+include ':app'
