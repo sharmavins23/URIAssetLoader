@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
             onUpdate()
         }
 
+        // Get the JSON thing for all of our assets, store into string json
+        // Gson().fromJson(json object, AssetObject::class.java)
+
         // Set the onclick lister for our button
         // Change this string to point to the .sfb file of your choice :)
         floatingActionButton.setOnClickListener { addObject(Uri.parse("https://poly.googleusercontent.com/downloads/0BnDT3T1wTE/85QOHCZOvov/Mesh_Beagle.gltf")) }
@@ -133,19 +136,28 @@ class MainActivity : AppCompatActivity() {
      */
     private fun placeObject(fragment: ArFragment, anchor: Anchor, model: Uri) {
         ModelRenderable.builder()
-                .setSource(fragment.context, RenderableSource.builder().setSource(
-                        fragment.context,
-                        model,
-                        RenderableSource.SourceType.GLTF2).build())
-                .setRegistryId(model)
-                .build()
-                .thenAccept {
-                    addNodeToScene(fragment, anchor, it)
-                }
-                .exceptionally {
-                    Toast.makeText(this@MainActivity, "Could not fetch model from $model", Toast.LENGTH_SHORT).show()
-                    return@exceptionally null
-                }
+            .setSource(
+                fragment.context, RenderableSource.builder().setSource(
+                    fragment.context,
+                    model,
+                    RenderableSource.SourceType.GLTF2
+                )
+                    .setScale(0.25f)
+                    .build()
+            )
+            .setRegistryId(model)
+            .build()
+            .thenAccept {
+                addNodeToScene(fragment, anchor, it)
+            }
+            .exceptionally {
+                Toast.makeText(
+                    this@MainActivity,
+                    "Could not fetch model from $model",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@exceptionally null
+            }
     }
 
     /**
